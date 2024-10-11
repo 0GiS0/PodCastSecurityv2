@@ -77,16 +77,16 @@ resource "azurerm_linux_web_app" "web" {
 
   app_settings = {
     "AZURE_OPENAI_TYPE" : "gpt-4o"
-    "AZURE_OPENAI_KEY": azurerm_cognitive_account.openai.primary_access_key
-    "AZURE_OPENAI_ENDPOINT": azurerm_cognitive_account.openai.endpoint
-    "AZURE_OPENAI_API_VERSION": ""
-    "AZURE_OPENAI_ENGINE": ""
-    "AZURE_FORM_RECOGNIZER_KEY": azurerm_cognitive_account.form_recognizer.primary_access_key
-    "AZURE_FORM_RECOGNIZER_ENDPOINT": azurerm_cognitive_account.form_recognizer.endpoint
-    "AZURE_SPEECH_KEY": azurerm_cognitive_account.speech.primary_access_key
-    "AZURE_SPEECH_REGION": azurerm_cognitive_account.speech.location
+    "AZURE_OPENAI_KEY" : azurerm_cognitive_account.openai.primary_access_key
+    "AZURE_OPENAI_ENDPOINT" : azurerm_cognitive_account.openai.endpoint
+    "AZURE_OPENAI_API_VERSION" : "turbo-2024-04-09"
+    "AZURE_OPENAI_ENGINE" : "azure"
+    "AZURE_FORM_RECOGNIZER_KEY" : azurerm_cognitive_account.form_recognizer.primary_access_key
+    "AZURE_FORM_RECOGNIZER_ENDPOINT" : azurerm_cognitive_account.form_recognizer.endpoint
+    "AZURE_SPEECH_KEY" : azurerm_cognitive_account.speech.primary_access_key
+    "AZURE_SPEECH_REGION" : azurerm_cognitive_account.speech.location
     "AZURE_STORAGE_CONNECTION_STRING" : azurerm_storage_account.storage.primary_connection_string
-    "AZURE_STORAGE_CONTAINER_NAME": azurerm_storage_container.container.name
+    "AZURE_STORAGE_CONTAINER_NAME" : azurerm_storage_container.container.name
   }
 
 }
@@ -109,7 +109,7 @@ resource "azurerm_cognitive_account" "form_recognizer" {
 
 resource "azurerm_cognitive_account" "openai" {
   name                = "openai-${random_pet.pet.id}"
-  location            = azurerm_resource_group.rg.location
+  location            = "swedencentral"
   resource_group_name = azurerm_resource_group.rg.name
   kind                = "OpenAI"
   sku_name            = "S0"
@@ -121,7 +121,7 @@ resource "azurerm_cognitive_deployment" "gpt-4o" {
   model {
     format  = "OpenAI"
     name    = "gpt-4o"
-    version = "1"
+    version = "2024-05-13"
   }
 
   sku {
