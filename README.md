@@ -1,5 +1,7 @@
 # Podcast Generator
 
+![Podcast Generator](docs/images/Podcast%20designer.jpeg)
+
 Podcast Generator is a web application that allows users to extract text from a document in PDF or website, generate a podcast conversation outline using Azure OpenAI's GPT-4o (current model), and convert the outline into an audio file using Azure Cognitive Services.
 
 ## Features

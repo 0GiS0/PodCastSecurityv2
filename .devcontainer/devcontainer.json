@@ -5,7 +5,9 @@
         "dockerfile": "Dockerfile"        
     },
     "features": {
-        "docker-in-docker": "latest"
+        "ghcr.io/devcontainers/features/terraform:1": {},
+        "ghcr.io/devcontainers/features/azure-cli:1": {}
+        // "docker-in-docker": "latest"
     },
     "customizations": {
         "vscode": {
@@ -15,10 +17,11 @@
             "extensions": [
                 "ms-vscode.cpptools",
                 "ms-python.python",
-                "dbaeumer.vscode-eslint"
+                "dbaeumer.vscode-eslint",
+                "HashiCorp.terraform"
             ]
         }
     },
     "postStartCommand": "pip install -r requirements.txt && python3 app.py",
-    "remoteUser": "vscode"
+    "containerUser": "vscode"
 }
