@@ -14,6 +14,7 @@ env:
   PYTHON_VERSION: '3.9'               # set this to the Python version to use
 
 on:
+  workflow_dispatch:    
   push:
     branches:
       - main
